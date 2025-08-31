@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RELOG Academia Tecnológica</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="font-sans text-gray-800">
+
+  <!-- Header -->
+  <header class="fixed w-full bg-white shadow-md z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+
+      <!-- Logo -->
+      <a href="#home" class="hover:text-blue-500">
+        <img class="h-12 w-auto object-contain" src="./assets/logo-relog.jpg" alt="logo-relog">
+      </a>
+
+      <!-- Menu Desktop -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="#home" class="hover:text-blue-500">Início</a>
+        <a href="#treinamentos" class="hover:text-blue-500">Treinamentos</a>
+        <a href="#sobre" class="hover:text-blue-500">Sobre Nós</a>
+        <a href="#faq" class="hover:text-blue-500">FAQ</a>
+      </nav>
+
+      <!-- Botão Desktop -->
+      <a href="#inscricao" class="hidden md:inline bg-blue-600 text-white px-4 py-2 rounded-lg border border-blue-700 font-semibold hover:bg-blue-700 transition">
+        Inscreva-se
+      </a>
+
+      <!-- Botão Mobile -->
+      <button id="menuBtn" class="md:hidden text-gray-800 text-2xl p-2 rounded-lg">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Overlay do Menu Mobile -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-black bg-opacity-40 z-60" onclick="closeMenu(event)">
+      <!-- Menu à direita -->
+      <div class="bg-white shadow-md p-6 space-y-4 w-1/2 ml-auto text-right rounded-l-xl h-auto mt-20" onclick="event.stopPropagation()">
+        <a href="#home" class="block hover:text-blue-500">Início</a>
+        <a href="#treinamentos" class="block hover:text-blue-500">Treinamentos</a>
+        <a href="#sobre" class="block hover:text-blue-500">Sobre Nós</a>
+        <a href="#faq" class="block hover:text-blue-500">FAQ</a>
+        <a href="#inscricao" class="inline-block bg-blue-600 text-white px-3 py-1.5 rounded-md border border-blue-700 text-sm font-medium hover:bg-blue-700 transition">
+          Inscreva-se
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-center px-6 scroll-mt-24">
+    <div>
+      <h2 class="text-3xl md:text-6xl font-bold mb-4 leading-snug">Aprenda Tecnologia de Forma Simples</h2>
+      <p class="mb-6 text-base md:text-xl leading-relaxed">Treinamentos práticos e intensivos para acelerar sua carreira.</p>
+      <a href="#inscricao" class="bg-white text-blue-600 px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold hover:bg-gray-200 transition text-sm md:text-base">Começar Agora</a>
+    </div>
+  </section>
+
+  <!-- Sessão Treinamentos -->
+  <section id="treinamentos" class="py-16 bg-gray-100 scroll-mt-24">
+    <div class="container mx-auto px-6">
+      <h3 class="text-3xl font-bold text-center mb-10">Treinamentos Intensivos</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Cards -->
+        <div class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+          <h4 class="text-xl font-bold mb-3 text-blue-600">Redes de Computadores</h4>
+          <p class="text-gray-600 mb-4">Domine as bases das redes de computadores e aprenda a configurar, gerenciar e resolver problemas em ambientes reais e simulados.</p>
+          <span class="block text-sm text-gray-500 font-bold mb-2">Duração: 2 semanas</span>
+          <span class="block text-sm font-semibold text-green-600 mb-3">Preço: 15.000 Kz</span>
+          <button onclick="openModal('Redes de Computadores','O treinamento de Redes de Computadores apresenta os conceitos essenciais para compreender como os dispositivos se conectam e comunicam entre si. O formando aprende sobre tipos de redes (LAN, MAN, WAN), topologias, modelos OSI/TCP-IP, endereçamento IPv4 e IPv6, protocolos de comunicação, cabeamento estruturado, equipamentos de rede (switches, roteadores, pontos de acesso) e noções de segurança. Também inclui práticas de configuração e troubleshooting em ambientes reais e simulados.')" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Mais detalhes</button>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+          <h4 class="text-xl font-bold mb-3 text-blue-600">CCNA 1</h4>
+          <p class="text-gray-600 mb-4">Fundamentos de redes e configuração inicial de dispositivos Cisco.</p>
+          <span class="block text-sm text-gray-500 font-bold mb-3">Duração: 2 semanas</span>
+          <span class="block text-sm font-semibold text-green-600 mb-3">Preço: 15.000 Kz</span>
+          <button onclick="openModal('CCNA 1','Ensina os conceitos básicos de redes, modelos OSI/TCP/IP, IPv4/IPv6, subnetting e a configuração inicial de roteadores e switches para criar conectividade em pequenas redes.')" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Mais detalhes</button>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+          <h4 class="text-xl font-bold mb-3 text-blue-600">CCNA 2</h4>
+          <p class="text-gray-600 mb-4">Redes locais com VLANs, roteamento básico e conectividade sem fio.</p>
+          <span class="block text-sm text-gray-500 font-bold mb-3">Duração: 2 semanas</span>
+          <span class="block text-sm font-semibold text-green-600 mb-3">Preço: 15.000 Kz</span>
+          <button onclick="openModal('CCNA 2','Apresenta a configuração de VLANs, trunking, roteamento entre VLANs, protocolos RIP/OSPF, redes Wi-Fi, STP, EtherChannel e técnicas de segurança em switches para ambientes LAN.')" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Mais detalhes</button>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+          <h4 class="text-xl font-bold mb-3 text-blue-600">CCNA 3</h4>
+          <p class="text-gray-600 mb-4">Redes empresariais avançadas, segurança e automação.</p>
+          <span class="block text-sm text-gray-500 font-bold mb-3">Duração: 2 semanas</span>
+          <span class="block text-sm font-semibold text-green-600 mb-3">Preço: 15.000 Kz</span>
+          <button onclick="openModal('CCNA 3','Cobre OSPF multiárea, EIGRP, WANs, VPNs, QoS, fundamentos de segurança de rede, além de introdução a SDN e automação de redes com Python e APIs.')" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Mais detalhes</button>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+          <h4 class="text-xl font-bold mb-3 text-blue-600">Hardware e Help Desk</h4>
+          <p class="text-gray-600 mb-4">Aprenda a montar, configurar e fazer manutenção de computadores.</p>
+          <span class="block text-sm text-gray-500 font-bold mb-3">Duração: 2 semanas</span>
+          <span class="block text-sm font-semibold text-green-600 mb-3">Preço: 15.000 Kz</span>
+          <button onclick="openModal('Hardware','O treinamento de Hardware ensina desde os componentes básicos do computador (CPU, memória, disco, motherboard, fonte de alimentação) até técnicas de montagem, instalação de sistemas operativos, diagnóstico e reparação de falhas. O formando aprende a identificar peças, substituir componentes, otimizar o desempenho do computador e aplicar boas práticas de manutenção preventiva e corretiva. Também inclui noções de periféricos, impressoras, redes locais e segurança na manipulação de equipamentos.')" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Mais detalhes</button>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+          <h4 class="text-xl font-bold mb-3 text-blue-600">Informática na Óptica do Utilizador</h4>
+          <p class="text-gray-600 mb-4">Conhecimentos práticos de informática para o uso eficiente do computador no dia a dia.</p>
+          <span class="block text-sm text-gray-500 font-bold mb-3">Duração: 2 semanas</span>
+          <span class="block text-sm font-semibold text-green-600 mb-3">Preço: 15.000 Kz</span>
+          <button onclick="openModal('Informática na Óptica do Utilizador','O treinamento de Informática na Óptica do Utilizador ensina os fundamentos necessários para que o formando utilize o computador de forma eficaz. Inclui noções de sistemas operativos (Windows/Linux), organização de pastas e ficheiros, edição de texto (Word), planilhas eletrónicas (Excel), apresentações (PowerPoint), navegação segura na internet, utilização do e-mail, ferramentas de colaboração online e boas práticas de segurança digital. O objetivo é capacitar o utilizador para aplicar a informática em atividades pessoais, acadêmicas e profissionais.')" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Mais detalhes</button>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+          <h4 class="text-xl font-bold mb-3 text-blue-600">Lógica de Programação</h4>
+          <p class="text-gray-600 mb-4">Aprenda os princípios básicos da programação e desenvolva o raciocínio lógico para criar soluções digitais.</p>
+          <span class="block text-sm text-gray-500 font-bold mb-3">Duração: 2 semanas</span>
+          <span class="block text-sm font-semibold text-green-600 mb-3">Preço: 15.000 Kz</span>
+          <button onclick="openModal('Lógica de Programação','O treinamento de Lógica de Programação apresenta os fundamentos essenciais para quem deseja entrar no mundo do desenvolvimento de software. O formando aprende a estruturar algoritmos, trabalhar com variáveis, operadores, estruturas de decisão, ciclos (loops) e funções. Também são explorados conceitos de pseudocódigo, fluxogramas e introdução a linguagens como C, Python ou JavaScript. O objetivo é desenvolver a capacidade de pensar de forma lógica, identificar problemas e propor soluções através da programação.')" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Mais detalhes</button>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+          <h4 class="text-xl font-bold mb-3 text-blue-600">Programação Web Front-End</h4>
+          <p class="text-gray-600 mb-4">Aprenda a criar sites modernos e interativos usando HTML, CSS, JavaScrip e frameworks modernos.</p>
+          <span class="block text-sm text-gray-500 font-bold mb-3">Duração: 2 semanas</span>
+          <span class="block text-sm font-semibold text-green-600 mb-3">Preço: 15.000 Kz</span>
+          <button onclick="openModal('Desenvolvimento Web Front-End','O treinamento nos ensina as tecnologias fundamentais para construir a interface de sites e aplicações web. O formando aprende a estruturar páginas com HTML5, aplicar estilos e responsividade com CSS3, adicionar interatividade com JavaScript e trabalhar com bibliotecas e frameworks populares como Bootstrap e React. Também são abordados conceitos de design responsivo, boas práticas de acessibilidade, versionamento com Git/GitHub e integração com APIs. O objetivo é capacitar o aluno a desenvolver interfaces modernas, intuitivas e compatíveis com diferentes dispositivos.')" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Mais detalhes</button>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+          <h4 class="text-xl font-bold mb-3 text-blue-600">Base de Dados</h4>
+          <p class="text-gray-600 mb-4">Modelagem, SQL e administração de bancos de dados.</p>
+          <span class="block text-sm text-gray-500 font-bold mb-3">Duração: 2 semanas</span>
+          <span class="block text-sm font-semibold text-green-600 mb-3">Preço: 15.000 Kz</span>
+          <button onclick="openModal('Base de Dados','O curso de Bases de Dados ensina os conceitos fundamentais de modelagem, criação e gestão de dados. O formando aprende a estruturar tabelas, definir relações, aplicar chaves primárias e estrangeiras, além de dominar a linguagem SQL para criar, consultar e manipular informações. Também são abordados temas como normalização, backups, segurança e noções de SGBDs (como MySQL, PostgreSQL e SQL Server). O objetivo é preparar o aluno para administrar dados de forma eficiente e segura em aplicações empresariais e sistemas de informação.')" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Mais detalhes</button>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="courseModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white rounded-xl shadow-lg p-6 w-96 relative">
+      <h3 id="modalTitle" class="text-2xl font-bold text-blue-600 mb-4"></h3>
+      <p id="modalDescription" class="text-gray-600 mb-6"></p>
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-600 hover:text-red-600 text-xl">&times;</button>
+      <a href="#inscricao" class="block text-center bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Inscrever-se</a>
+    </div>
+  </div>
+
+  <!-- Sessão Sobre Nós -->
+  <section id="sobre" class="py-16 scroll-mt-24">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold mb-6">Sobre Nós</h3>
+      <p class="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+        A <span class="font-semibold text-blue-600">RELOG</span> é uma academia focada na capacitação de profissionais para o mercado tecnológico.  
+        Acreditamos que a educação prática e intensiva é a chave para o crescimento pessoal e profissional.  
+        Oferecemos treinamentos curtos, direcionados e eficazes, que permitem ao aluno aplicar os conhecimentos desde o primeiro dia.  
+        Nosso compromisso é preparar nossos estudantes para os desafios reais do mercado de trabalho digital.
+      </p>
+    </div>
+  </section>
+
+ <!-- Sessão Inscrição -->
+<section id="inscricao" class="py-16 bg-blue-600 text-white scroll-mt-24">
+  <div class="container mx-auto px-6 text-center">
+    <h3 class="text-3xl font-bold mb-6">Inscreva-se Agora</h3>
+
+    <!-- Formulário integrado com Formsubmit -->
+    <form action="https://formsubmit.co/geral.relog@gmail.com" method="POST"
+          class="max-w-lg mx-auto space-y-4 bg-white text-gray-800 p-6 rounded-xl shadow-lg">
+      
+      <input type="text" name="nome" placeholder="Nome Completo" required
+             class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+      
+      <input type="email" name="email" placeholder="Seu E-mail" required
+             class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+      
+      <select name="curso" required
+              class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <option value="">Selecione um Treinamento</option>
+        <option>Redes de Computadores</option>
+        <option>CCNA 1</option>
+        <option>CCNA 2</option>
+        <option>CCNA 3</option>
+        <option>Hardware e Help Desk</option>
+        <option>Informática na Óptica do Utilizador</option>
+        <option>Lógica de Programação</option>
+        <option>Programação Web Front-End</option>
+        <option>Base de Dados</option>
+      </select>
+      
+      <button type="submit" 
+              class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+        Enviar Inscrição
+      </button>
+    </form>
+
+    <p class="mt-4 text-sm">
+      <i class="fas fa-envelope"></i> Após preencher, sua inscrição será enviada diretamente ao administrador do treinamento.
+    </p>    
+    
+  </div>
+</section>
+
+   <!-- FAQ Section -->
+  <section id="faq" class="py-16 bg-gray-50 scroll-mt-24">
+    <div class="max-w-4xl mx-auto text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-800">Perguntas Frequentes</h2>
+      <p class="text-gray-600 mt-2">Tire suas dúvidas sobre os nossos treinamentos.</p>
+    </div>
+
+    <div class="max-w-3xl mx-auto space-y-4">
+      <!-- Pergunta 1 -->
+      <div class="border border-gray-200 rounded-lg">
+        <button class="w-full flex justify-between items-center p-4 text-left text-gray-800 font-medium hover:bg-gray-100 faq-toggle">
+          <span>Como funcionam os treinamentos intensivos?</span>
+          <svg class="w-5 h-5 transition-transform duration-300 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="hidden p-4 text-gray-600">
+          Nossos treinamentos são práticos e de curta duração, focados em habilidades essenciais para o mercado de trabalho. 
+          Você aprende com instrutores experientes e recebe certificado de conclusão.
+        </div>
+      </div>
+
+      <!-- Pergunta 2 -->
+      <div class="border border-gray-200 rounded-lg">
+        <button class="w-full flex justify-between items-center p-4 text-left text-gray-800 font-medium hover:bg-gray-100 faq-toggle">
+          <span>Posso pagar os treinamentos em parcelas?</span>
+          <svg class="w-5 h-5 transition-transform duration-300 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      <div class="hidden p-4 text-gray-600">
+        Não, mas oferecemos opções de parcelamento dependendo de casos esecíficos. Entre em contato com nossa equipe para mais informações.
+      </div>
+    </div>
+
+    <!-- Pergunta 3 -->
+    <div class="border border-gray-200 rounded-lg">
+      <button class="w-full flex justify-between items-center p-4 text-left text-gray-800 font-medium hover:bg-gray-100 faq-toggle">
+        <span>Como faço para me inscrever?</span>
+        <svg class="w-5 h-5 transition-transform duration-300 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div class="hidden p-4 text-gray-600">
+        Basta acessar a seção <strong>Inscrever-se</strong> em nosso site, preencher o formulário e aguardar a confirmação por e-mail.
+      </div>
+    </div>
+
+    <!-- Pergunta 4 -->
+    <div class="border border-gray-200 rounded-lg">
+      <button class="w-full flex justify-between items-center p-4 text-left text-gray-800 font-medium hover:bg-gray-100 faq-toggle">
+        <span>Os treinamentos têm certificado?</span>
+        <svg class="w-5 h-5 transition-transform duration-300 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div class="hidden p-4 text-gray-600">
+        Sim! Todos os cursos oferecem certificado de participação, não são reconhecidos pelo INEFOP, mas pode ser usado em seu currículo ou LinkedIn.
+      </div>
+    </div>
+  </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
+    
+      <!-- Endereço -->
+      <div>
+        <h3 class="text-xl font-semibold text-white mb-3">Endereço</h3>
+        <p><i class="fa-solid fa-location-dot mr-2"></i>Bairro Camama,  Lado oposto a Sinfo, Rua do Bar Preto, Próximo ao Colégio AGS.</p>
+      </div>
+
+      <!-- Contactos -->
+      <div>
+        <h3 class="text-xl font-semibold text-white mb-3">Contactos</h3>
+        <p><i class="fa-solid fa-phone mr-2"></i> +244 948 618 690 / +244 954 834 990</p>
+        <p><i class="fa-solid fa-envelope mr-2"></i>geral.relog@gmail.com</p>
+      </div>
+
+      <!-- Redes Sociais -->
+      <div>
+        <h3 class="text-xl font-semibold text-white mb-3">Siga-nos</h3>
+        <div class="flex space-x-4 mt-2">
+          <a href="https://www.facebook.com/share/1AxTP1KEWb" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/relogacademiatecnologica" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@relogacademiatecnologica" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center text-gray-500 mt-8 border-t border-gray-700 pt-4">
+      © 2025 RELOG Academia Tecnológica - Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <script src="script.js"> </script>
+</body>
+</html>
